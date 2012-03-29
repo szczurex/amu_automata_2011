@@ -12,10 +12,7 @@ foreach $temp (@line)
 {
     if ($temp =~ /([1-3]?\d)\s(stycznia|lutego|marca|kwietnia|maja|czerwca|lipca|sierpnia|września|października|listopada|grudnia)\s([1-9]\d\D|19\d\d\D|20\d\d\D)/)
     { 
-      print "$1 $2 $3\n"
+    	print "$1 $2 $3\n"
     }
 }
 close FILE;
-
-
-
