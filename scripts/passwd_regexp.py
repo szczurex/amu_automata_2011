@@ -18,13 +18,13 @@ if filename is not None:
     print("Błąd podczas otwierania pliku.")
     
   if file:
-    pattern = "^.*:(\w+[^a])\s(\w+):\/home\/students\/.*$"
+    pattern = "^.*:(\w+[^a])\s(\w+).*:\/home\/students\/.*$"
     unique_results = []
     for line in file: #iterujemy linijka po linijce
       result = re.match(pattern, line)
       if result:
-	if result.groups()[0] not in unique_results:
-	  unique_results.append(result.groups()[0])
+	if result.groups()[0].capitalize() not in unique_results:
+	  unique_results.append(result.groups()[0].capitalize())
     file.close()
     
     print("Zakończono przeszukiwanie pliku.")
@@ -32,7 +32,7 @@ if filename is not None:
       time.sleep(1)
       print(".")
     
-    for name in unique_results:
+    for name in sorted(unique_results):
       time.sleep(0.1)
       print(name)
     print("Wyniki: %d") % (len(unique_results))
